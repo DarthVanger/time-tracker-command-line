@@ -1,5 +1,7 @@
 #!/bin/bash
 
+log_file=~/time-log.txt
+
 function log_by_day () {
   day=''
   previous_day=''
@@ -29,7 +31,7 @@ function log_by_day () {
       minutesWorked=$((hoursDiff * 60 + minutesDiff))
       minutesWorkedThisDay=$((minutesWorkedThisDay + minutesWorked))
     fi
-  done <time-log.txt
+  done <"$log_file"
   if [ "$logIsOneDayOnly" = true ]
   then
     echo "$previous_day: worked $(($minutesWorkedThisDay / 60)) hours and $(($minutesWorkedThisDay % 60)) min"
@@ -38,12 +40,12 @@ function log_by_day () {
 
 case "$1" in
   "start")
-    echo `date +%FT%T` start >> time-log.txt
-    tail -1 time-log.txt
+    echo `date +%FT%T` start >> "$log_file"
+    tail -1 "$log_file"
     ;;
   "end")
-    echo `date +%FT%T` end >> time-log.txt
-    tail -1 time-log.txt
+    echo `date +%FT%T` end >> "$log_file"
+    tail -1 "$log_file"
     ;;
   "log")
     log_by_day
