@@ -6,13 +6,13 @@ Download the `tracker` file from this repo, it's a bash script.
 Make it executable (`chmod +x tracker`) and move to `/usr/local/bin/` to make it avaialbe globally.
 
 ## Usage
-When you start work:
+When you start working:
 ```
 tracker start
 ```
-When you finish work:
+When you stop working:
 ```
-tracker end
+tracker stop
 ```
 To view how much you worked each day:
 ```
@@ -20,7 +20,7 @@ tracker log
 ```
 
 ### Editing time entries
-If you want to correct the time when you started/ended your work, edit the `~/time-log.txt` file:
+If you want to correct the time when you started/stoped your work, edit the `~/time-log.txt` file:
 ```
 vim ~/time-log.txt
 ```
